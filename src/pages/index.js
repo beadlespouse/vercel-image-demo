@@ -1,7 +1,11 @@
 import * as React from "react";
 import { GatsbyImage } from "gatsby-plugin-image";
-import { graphql } from "gatsby"
+import { graphql } from "gatsby";
 
+const gridStyles = {
+  display: "grid",
+  gridTemplateColumns: "repeat(6, 1fr)",
+};
 
 // markup
 const IndexPage = ({ data }) => {
@@ -9,22 +13,31 @@ const IndexPage = ({ data }) => {
     <section>
       <h1>Demo of Gatsby Image and Vercel</h1>
       <p>redeploy test</p>
-      <GatsbyImage
-        image={data.imageSharp.gatsbyImageData}
-        alt={"artist image"}
-        objectFit="contain"
-        style={{ height: "380px" }}
-      />
+      <div style={gridStyles}>
+        {data.allImageSharp.edges.map((img) => {
+          return (
+            <GatsbyImage
+              image={img.node.gatsbyImageData}
+              objectFit="contain"
+              style={{ height: "380px" }}
+            />
+          );
+        })}
+      </div>
     </section>
   );
 };
 
 export const query = graphql`
-  query Image {
-    imageSharp {
-      gatsbyImageData(quality: 90, layout: FULL_WIDTH, placeholder: BLURRED)
+  query Images {
+    allImageSharp {
+      edges {
+        node {
+          gatsbyImageData(quality: 90, layout: FULL_WIDTH, placeholder: BLURRED)
+        }
+      }
     }
   }
-`
+`;
 
 export default IndexPage;
