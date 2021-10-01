@@ -14,10 +14,10 @@ const IndexPage = ({ data }) => {
       <h1>Demo of Gatsby Image and Vercel</h1>
       <p>redeploy test</p>
       <div style={gridStyles}>
-        {data.allImageSharp.edges.map((img) => {
+        {data.allAirtable.edges.map((img) => {
           return (
             <GatsbyImage
-              image={img.node.gatsbyImageData}
+              image={img.node.data.Image.localFiles[0].childImageSharp.gatsbyImageData}
               objectFit="contain"
             />
           );
@@ -29,10 +29,18 @@ const IndexPage = ({ data }) => {
 
 export const query = graphql`
   query Images {
-    allImageSharp {
+    allAirtable {
       edges {
         node {
-          gatsbyImageData(quality: 90, layout: FULL_WIDTH, placeholder: BLURRED)
+          data {
+            Image {
+              localFiles {
+                childImageSharp {
+                  gatsbyImageData(quality: 90, layout: FULL_WIDTH, placeholder: BLURRED)
+                }
+              }
+            }
+          }
         }
       }
     }

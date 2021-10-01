@@ -18,6 +18,7 @@
     "gatsby": "^3.13.1",
     "gatsby-plugin-image": "^1.14.0",
     "gatsby-plugin-sharp": "^3.14.0",
+    "gatsby-source-airtable": "^2.2.1",
     "gatsby-source-filesystem": "^3.14.0",
     "gatsby-transformer-sharp": "^3.14.0",
     "react": "^17.0.1",
