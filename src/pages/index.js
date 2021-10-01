@@ -12,7 +12,6 @@ const IndexPage = ({ data }) => {
   return (
     <section>
       <h1>Demo of Gatsby Image and Vercel</h1>
-      <p>redeploy test</p>
       <div style={gridStyles}>
         {data.allAirtable.edges.map((img) => {
           return (
