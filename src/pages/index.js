@@ -8,6 +8,7 @@ const IndexPage = ({ data }) => {
   return (
     <section>
       <h1>Demo of Gatsby Image and Vercel</h1>
+      <p>redeploy test</p>
       <GatsbyImage
         image={data.imageSharp.gatsbyImageData}
         alt={"artist image"}
