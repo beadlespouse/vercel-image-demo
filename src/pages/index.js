@@ -4,7 +4,7 @@ import { graphql } from "gatsby";
 
 const gridStyles = {
   display: "grid",
-  gridTemplateColumns: "repeat(6, 1fr)",
+  gridTemplateColumns: "repeat(2, 1fr)",
 };
 
 // markup
@@ -19,7 +19,6 @@ const IndexPage = ({ data }) => {
             <GatsbyImage
               image={img.node.gatsbyImageData}
               objectFit="contain"
-              style={{ height: "380px" }}
             />
           );
         })}
