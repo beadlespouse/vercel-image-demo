@@ -18,6 +18,7 @@ const IndexPage = ({ data }) => {
             <GatsbyImage
               image={img.node.data.Image.localFiles[0].childImageSharp.gatsbyImageData}
               objectFit="contain"
+              loading={'eager'}
             />
           );
         })}
